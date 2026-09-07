@@ -12,3 +12,14 @@
 ./gradlew :hw01-gradle:build
 java -jar hw01-gradle/build/libs/hw01-gradle-1.0.jar
 ```
+
+## hw02-collections
+
+Применение коллекций и обобщений: swap элементов массива, преобразование в `ArrayList`, уникальные слова и частота.
+
+```bash
+./gradlew :hw02-collections:run
+# или
+./gradlew :hw02-collections:build
+java -jar hw02-collections/build/libs/hw02-collections-1.0.jar
+```
