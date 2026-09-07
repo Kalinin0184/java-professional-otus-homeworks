@@ -23,3 +23,14 @@ java -jar hw01-gradle/build/libs/hw01-gradle-1.0.jar
 ./gradlew :hw02-collections:build
 java -jar hw02-collections/build/libs/hw02-collections-1.0.jar
 ```
+
+## hw03-testframework
+
+Свой тестовый фреймворк на reflection: `@Before`, `@Test`, `@After`.
+
+```bash
+./gradlew :hw03-testframework:build
+java -jar hw03-testframework/build/libs/hw03-testframework-1.0.jar
+# или с явным именем класса:
+java -jar hw03-testframework/build/libs/hw03-testframework-1.0.jar ru.otus.testframework.demo.ExampleTest
+```
