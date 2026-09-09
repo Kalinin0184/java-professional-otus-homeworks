@@ -34,3 +34,12 @@ java -jar hw03-testframework/build/libs/hw03-testframework-1.0.jar
 # или с явным именем класса:
 java -jar hw03-testframework/build/libs/hw03-testframework-1.0.jar ru.otus.testframework.demo.ExampleTest
 ```
+
+## hw04-gc
+
+Определение нужного размера хипа и влияние GC. Результаты замеров — в [hw04-gc/RESULTS.md](hw04-gc/RESULTS.md).
+
+```bash
+./gradlew :hw04-gc:build
+java -Xms256m -Xmx256m -XX:+UseG1GC -jar hw04-gc/build/libs/hw04-gc-1.0.jar
+```
