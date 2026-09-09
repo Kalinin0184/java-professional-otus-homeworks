@@ -43,3 +43,12 @@ java -jar hw03-testframework/build/libs/hw03-testframework-1.0.jar ru.otus.testf
 ./gradlew :hw04-gc:build
 java -Xms256m -Xmx256m -XX:+UseG1GC -jar hw04-gc/build/libs/hw04-gc-1.0.jar
 ```
+
+## hw05-aop
+
+Автоматическое логирование параметров через Dynamic Proxy и аннотацию `@Log`.
+
+```bash
+./gradlew :hw05-aop:build
+java -jar hw05-aop/build/libs/hw05-aop-1.0.jar
+```
