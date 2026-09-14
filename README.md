@@ -61,3 +61,12 @@ java -jar hw05-aop/build/libs/hw05-aop-1.0.jar
 ./gradlew :hw06-atm:build
 java -jar hw06-atm/build/libs/hw06-atm-1.0.jar
 ```
+
+## hw07-patterns
+
+Обработчик сообщений (паттерны): `field11-13`, swap-процессор, исключение на чётной секунде, `HistoryListener` (memento).
+
+```bash
+./gradlew :hw07-patterns:test
+./gradlew :hw07-patterns:run
+```
