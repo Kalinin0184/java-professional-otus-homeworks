@@ -52,3 +52,12 @@ java -Xms256m -Xmx256m -XX:+UseG1GC -jar hw04-gc/build/libs/hw04-gc-1.0.jar
 ./gradlew :hw05-aop:build
 java -jar hw05-aop/build/libs/hw05-aop-1.0.jar
 ```
+
+## hw06-atm
+
+Эмулятор банкомата с акцентом на SOLID. Описание — в [hw06-atm/README.md](hw06-atm/README.md).
+
+```bash
+./gradlew :hw06-atm:build
+java -jar hw06-atm/build/libs/hw06-atm-1.0.jar
+```
