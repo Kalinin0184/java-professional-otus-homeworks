@@ -78,3 +78,12 @@ java -jar hw06-atm/build/libs/hw06-atm-1.0.jar
 ```bash
 ./gradlew :hw08-json:test
 ```
+
+## hw09-jdbc
+
+Самодельный ORM на JDBC. Postgres в Docker:
+
+```bash
+docker compose -f hw09-jdbc/docker-compose.yml up -d
+./gradlew :hw09-jdbc:run
+```
