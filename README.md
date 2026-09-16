@@ -97,3 +97,13 @@ docker compose -f hw10-hibernate/docker-compose.yml up -d
 ./gradlew :hw10-hibernate:test
 ./gradlew :hw10-hibernate:run
 ```
+
+## hw11-cache
+
+Свой cache engine на `WeakHashMap` + кэширование в `DBServiceClient` (Hibernate ORM).
+
+```bash
+docker compose -f hw11-cache/docker-compose.yml up -d
+./gradlew :hw11-cache:test --tests ru.otus.cachehw.MyCacheTest
+./gradlew :hw11-cache:run
+```
