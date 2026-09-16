@@ -87,3 +87,13 @@ java -jar hw06-atm/build/libs/hw06-atm-1.0.jar
 docker compose -f hw09-jdbc/docker-compose.yml up -d
 ./gradlew :hw09-jdbc:run
 ```
+
+## hw10-hibernate
+
+Hibernate: `Client` + `Address` (OneToOne) + `Phone` (OneToMany), каскадное сохранение/чтение.
+
+```bash
+docker compose -f hw10-hibernate/docker-compose.yml up -d
+./gradlew :hw10-hibernate:test
+./gradlew :hw10-hibernate:run
+```
