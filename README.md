@@ -70,3 +70,11 @@ java -jar hw06-atm/build/libs/hw06-atm-1.0.jar
 ./gradlew :hw07-patterns:test
 ./gradlew :hw07-patterns:run
 ```
+
+## hw08-json
+
+Обработчик JSON: чтение measurements, агрегация по name, запись результата в файл.
+
+```bash
+./gradlew :hw08-json:test
+```
