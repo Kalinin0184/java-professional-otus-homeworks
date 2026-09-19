@@ -154,3 +154,12 @@ docker compose -f hw14-springBoot/docker-compose.yml up -d
 ./gradlew :hw16-queues:test
 ./gradlew :hw16-queues:run
 ```
+
+## hw17-gRPC
+
+gRPC клиент-сервер: стрим чисел с сервера и расчёт `currentValue` на клиенте.
+
+```bash
+./gradlew :hw17-gRPC:runServer
+./gradlew :hw17-gRPC:runClient
+```
