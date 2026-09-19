@@ -117,3 +117,12 @@ docker compose -f hw12-webserver/docker-compose.yml up -d
 ./gradlew :hw12-webserver:run
 # http://localhost:8080  (admin / admin)
 ```
+
+## hw13-di
+
+Собственный IoC-контейнер (тренажёр таблицы умножения).
+
+```bash
+./gradlew :hw13-di:test
+./gradlew :hw13-di:run
+```
