@@ -145,3 +145,12 @@ docker compose -f hw14-springBoot/docker-compose.yml up -d
 ./gradlew :hw15-thread:test
 ./gradlew :hw15-thread:run
 ```
+
+## hw16-queues
+
+Буферизация сенсорных данных в очереди (`SensorDataProcessorBuffered`).
+
+```bash
+./gradlew :hw16-queues:test
+./gradlew :hw16-queues:run
+```
