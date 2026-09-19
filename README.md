@@ -126,3 +126,13 @@ docker compose -f hw12-webserver/docker-compose.yml up -d
 ./gradlew :hw13-di:test
 ./gradlew :hw13-di:run
 ```
+
+## hw14-springBoot
+
+CRUD клиентов на Spring Boot (Spring Data JDBC + Thymeleaf), без авторизации.
+
+```bash
+docker compose -f hw14-springBoot/docker-compose.yml up -d
+./gradlew :hw14-springBoot:bootRun
+# http://localhost:8080
+```
