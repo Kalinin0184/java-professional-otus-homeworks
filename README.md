@@ -107,3 +107,13 @@ docker compose -f hw11-cache/docker-compose.yml up -d
 ./gradlew :hw11-cache:test --tests ru.otus.cachehw.MyCacheTest
 ./gradlew :hw11-cache:run
 ```
+
+## hw12-webserver
+
+Jetty-веб-сервер поверх Hibernate ORM: логин администратора и страница клиентов.
+
+```bash
+docker compose -f hw12-webserver/docker-compose.yml up -d
+./gradlew :hw12-webserver:run
+# http://localhost:8080  (admin / admin)
+```
