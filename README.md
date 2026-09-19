@@ -163,3 +163,14 @@ gRPC клиент-сервер: стрим чисел с сервера и ра�
 ./gradlew :hw17-gRPC:runServer
 ./gradlew :hw17-gRPC:runClient
 ```
+
+## hw18-webflux
+
+Реактивный чат со специальной комнатой `1408` (только чтение всех сообщений). Подробнее — в [hw18-webflux/README.md](hw18-webflux/README.md).
+
+```bash
+docker compose -f hw18-webflux/docker-compose.yml up -d
+./gradlew :hw18-webflux:datastore-service:bootRun
+./gradlew :hw18-webflux:client-service:bootRun
+# http://localhost:8080
+```

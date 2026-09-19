@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5430/hw18db
+    username: usr
+    password: pwd
+  flyway:
+    url: jdbc:postgresql://localhost:5430/hw18db
+    user: usr
+    password: pwd
+
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: TRACE
