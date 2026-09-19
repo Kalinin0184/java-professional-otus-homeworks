@@ -136,3 +136,12 @@ docker compose -f hw14-springBoot/docker-compose.yml up -d
 ./gradlew :hw14-springBoot:bootRun
 # http://localhost:8080
 ```
+
+## hw15-thread
+
+Два потока печатают числа `1..10..1..`, чередуясь; начинает «Поток 1».
+
+```bash
+./gradlew :hw15-thread:test
+./gradlew :hw15-thread:run
+```
