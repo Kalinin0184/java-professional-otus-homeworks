@@ -1,6 +1,7 @@
 package ru.otus.httpserver.http;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -12,7 +13,7 @@ public final class HttpResponse {
 
     private HttpResponse(HttpStatus status, Map<String, String> headers, byte[] body) {
         this.status = status;
-        this.headers = headers;
+        this.headers = Collections.unmodifiableMap(headers);
         this.body = body;
     }
 
@@ -42,6 +43,12 @@ public final class HttpResponse {
 
     public byte[] body() {
         return body.clone();
+    }
+
+    public HttpResponse withHeader(String name, String value) {
+        Map<String, String> copy = new LinkedHashMap<>(headers);
+        copy.put(name.toLowerCase(Locale.ROOT), value);
+        return new HttpResponse(status, copy, body);
     }
 
     public static final class Builder {
@@ -74,7 +81,6 @@ public final class HttpResponse {
         public HttpResponse build() {
             Map<String, String> result = new LinkedHashMap<>(headers);
             result.putIfAbsent("content-length", String.valueOf(body.length));
-            result.putIfAbsent("connection", "close");
             return new HttpResponse(status, result, body);
         }
     }

@@ -18,7 +18,7 @@ class HttpResponseWriterTest {
         assertThat(raw).startsWith("HTTP/1.1 200 OK\r\n");
         assertThat(raw).contains("Content-Type: application/json; charset=utf-8\r\n");
         assertThat(raw).contains("Content-Length: ");
-        assertThat(raw).contains("Connection: close\r\n");
+        assertThat(raw).doesNotContain("Connection:");
         assertThat(raw).endsWith("\r\n\r\n{\"ok\":true}");
     }
 }

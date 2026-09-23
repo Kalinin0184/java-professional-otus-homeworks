@@ -61,4 +61,16 @@ public final class HttpRequest {
     public String bodyAsString() {
         return new String(body, StandardCharsets.UTF_8);
     }
+
+    /**
+     * HTTP/1.1 keeps the connection open by default unless {@code Connection: close}.
+     * HTTP/1.0 closes unless {@code Connection: keep-alive}.
+     */
+    public boolean wantsKeepAlive() {
+        Optional<String> connection = header("connection").map(v -> v.toLowerCase(Locale.ROOT));
+        if (version.startsWith("HTTP/1.1")) {
+            return connection.map(v -> !v.contains("close")).orElse(true);
+        }
+        return connection.map(v -> v.contains("keep-alive")).orElse(false);
+    }
 }

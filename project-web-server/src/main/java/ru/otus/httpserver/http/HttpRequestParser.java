@@ -14,7 +14,10 @@ public final class HttpRequestParser {
 
     public HttpRequest parse(InputStream inputStream) throws IOException {
         String requestLine = readLine(inputStream);
-        if (requestLine == null || requestLine.isEmpty()) {
+        if (requestLine == null) {
+            throw new ClientDisconnectedException();
+        }
+        if (requestLine.isEmpty()) {
             throw new BadRequestException("Empty request line");
         }
 

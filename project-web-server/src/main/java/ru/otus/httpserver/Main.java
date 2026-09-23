@@ -21,12 +21,15 @@ public final class Main {
                 .post("/api/echo", new EchoHandler())
                 .fallback(staticHandler);
 
-        HttpServerConfig config = new HttpServerConfig(port, 16, wwwRoot);
+        HttpServerConfig config = new HttpServerConfig(port, 16, wwwRoot, 30_000, 100);
         HttpServer server = new HttpServer(config, router);
         server.start();
 
         Runtime.getRuntime().addShutdownHook(new Thread(server::close, "http-shutdown"));
         log.info(() -> "Serving static files from " + wwwRoot.toAbsolutePath());
+        log.info(() -> "Keep-Alive enabled, idle timeout "
+                + config.soTimeoutMs() + "ms, max "
+                + config.maxRequestsPerConnection() + " requests/connection");
         log.info(() -> "Open http://localhost:" + server.port());
     }
 

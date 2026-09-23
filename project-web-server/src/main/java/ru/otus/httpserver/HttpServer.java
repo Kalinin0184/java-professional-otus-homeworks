@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ru.otus.httpserver.connection.ConnectionHandler;
@@ -19,6 +20,7 @@ public final class HttpServer implements AutoCloseable {
     private final HttpServerConfig config;
     private final Router router;
     private final AtomicBoolean running = new AtomicBoolean(false);
+    private final AtomicLong acceptedConnections = new AtomicLong();
     private ServerSocket serverSocket;
     private ExecutorService workerPool;
     private Thread acceptorThread;
@@ -43,7 +45,10 @@ public final class HttpServer implements AutoCloseable {
         acceptorThread = new Thread(this::acceptLoop, "http-acceptor");
         acceptorThread.setDaemon(false);
         acceptorThread.start();
-        log.info(() -> "HTTP server started on port " + config.port());
+        log.info(() -> "HTTP server started on port " + port()
+                + " (pool=" + config.poolSize()
+                + ", soTimeout=" + config.soTimeoutMs() + "ms"
+                + ", maxReq/conn=" + config.maxRequestsPerConnection() + ")");
     }
 
     public int port() {
@@ -54,11 +59,18 @@ public final class HttpServer implements AutoCloseable {
         return running.get();
     }
 
+    public long acceptedConnections() {
+        return acceptedConnections.get();
+    }
+
     private void acceptLoop() {
         while (running.get()) {
             try {
                 Socket socket = serverSocket.accept();
-                workerPool.execute(new ConnectionHandler(socket, router));
+                acceptedConnections.incrementAndGet();
+                socket.setTcpNoDelay(true);
+                socket.setSoTimeout(config.soTimeoutMs());
+                workerPool.execute(new ConnectionHandler(socket, router, config));
             } catch (SocketException ex) {
                 if (running.get()) {
                     log.log(Level.SEVERE, "Accept failed", ex);
@@ -99,6 +111,6 @@ public final class HttpServer implements AutoCloseable {
                 Thread.currentThread().interrupt();
             }
         }
-        log.info("HTTP server stopped");
+        log.info(() -> "HTTP server stopped, acceptedConnections=" + acceptedConnections.get());
     }
 }
