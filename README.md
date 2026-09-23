@@ -174,3 +174,13 @@ docker compose -f hw18-webflux/docker-compose.yml up -d
 ./gradlew :hw18-webflux:client-service:bootRun
 # http://localhost:8080
 ```
+
+## project-web-server
+
+Проектная работа: свой HTTP/1.1 сервер с разбором протокола, статикой и JSON API. Подробнее — в [project-web-server/README.md](project-web-server/README.md).
+
+```bash
+./gradlew :project-web-server:test
+./gradlew :project-web-server:run
+# http://localhost:8080
+```
