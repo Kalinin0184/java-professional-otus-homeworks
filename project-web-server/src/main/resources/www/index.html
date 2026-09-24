@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom HTTP Server</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+    <h1>Свой HTTP-сервер</h1>
+    <p>Прототип проектной работы OTUS: разбор HTTP/1.1, статика и JSON API.</p>
+
+    <section>
+        <h2>GET /api/hello</h2>
+        <button id="helloBtn" type="button">Вызвать</button>
+        <pre id="helloOut"></pre>
+    </section>
+
+    <section>
+        <h2>POST /api/echo</h2>
+        <input id="echoInput" type="text" value="ping" />
+        <button id="echoBtn" type="button">Отправить</button>
+        <pre id="echoOut"></pre>
+    </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

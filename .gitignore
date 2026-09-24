@@ -9,3 +9,9 @@ out/
 *.log
 .DS_Store
 Thumbs.db
+logs/
+*.hprof
+_hw04_ref/
+project-web-server/ZASHITA.md
+project-web-server/_build_presentation.py
+project-web-server/_tpl_*.txt
